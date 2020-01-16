@@ -30,11 +30,19 @@ class NegociacoesView{
                             <td>${n.volume}</td>
                         </tr>
                     `
-                    
+
                 ).join('')}
             </tbody>
                 
             <tfoot>
+                    <td colspan="3"></td>
+                    <td>${
+                        (function() {
+                            let total = 0;
+                            modelo.negociacoes.forEach(n => total+=n.volume);
+                            return total;
+                    })() 
+                    }</td>
             </tfoot>
         </table>
         
